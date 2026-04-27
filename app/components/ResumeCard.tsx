@@ -2,15 +2,15 @@ import React from 'react'
 import { Link } from "react-router"
 import ScoreCircle from "~/components/ScoreCircle";
 
-const ResumeCard = ( {resume: {id, companyName, jobTitle, feedback, imagePath}} : {Resume}) => {
+const ResumeCard = ( {resume: {id, companyName, jobTitle, feedback, imagePath}} : {resume : Resume}) => {
     return (
         <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
             <div className="resume-card-header">
                 <div className="flex flex-col gap-2">
-                    <h2 className="text-black font-bold break-words">{companyName}</h2>
-                    <h3 className="text-gray-500 text-lg break-words">{jobTitle}</h3>
+                    <h2 className="text-black font-bold wrap-break-word">{companyName}</h2>
+                    <h3 className="text-gray-500 text-lg wrap-break-word">{jobTitle}</h3>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                     <ScoreCircle score={feedback.overallScore} />
                 </div>
             </div>
@@ -20,7 +20,7 @@ const ResumeCard = ( {resume: {id, companyName, jobTitle, feedback, imagePath}} 
                     <img
                         src={imagePath}
                         alt="resume"
-                        className="w-full h-[260px] max-sm:h-[200px] object-cover object-top"
+                        className="w-full h-65 max-sm:h-50 object-cover object-top"
                     />
                 </div>
             </div>
