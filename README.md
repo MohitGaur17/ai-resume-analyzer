@@ -1,87 +1,26 @@
-# Welcome to React Router!
+# TalentLens AI
 
-A modern, production-ready template for building full-stack React applications using React Router.
+TalentLens AI is a robust, full-stack web application designed to give job seekers a competitive advantage. Powered by advanced artificial intelligence, this platform evaluates your uploaded resume directly against specific job descriptions, providing actionable feedback, ATS (Applicant Tracking System) scoring, and targeted improvement tips.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## 🚀 Key Features
 
-## Features
+*   **Intelligent Resume Analysis:** Get instant, AI-generated feedback highlighting your resume's strengths, critical missing keywords, and optimization strategies for your target role.
+*   **ATS Scoring System:** Understand exactly how well your resume matches the job description before you apply.
+*   **Persistent Dashboard:** Track your application history and review past AI scores to monitor your improvements over time.
+*   **Seamless Authentication:** Secure user authentication handled natively by Puter.js.
+*   **Modern, Responsive UI:** A premium, fully responsive interface styled with Tailwind CSS, ensuring a smooth experience across all desktop and mobile devices.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 🛠️ Technology Stack
 
-## Getting Started
+*   **Frontend Framework:** [React Router v7](https://reactrouter.com/)
+*   **Styling & UI:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Backend & Infrastructure:** [Puter.js](https://docs.puter.com/) (Handling Auth, File Storage, Key-Value Database, and LLM AI Inference)
+*   **Language:** TypeScript
 
-### Installation
+## 🌐 Live Preview
 
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+*Deployment link coming soon!*
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ by [Mohit Gaur](https://github.com/MohitGaur17)
