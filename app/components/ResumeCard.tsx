@@ -1,22 +1,25 @@
-import {Link} from "react-router";
+import { Link } from "react-router";
 import ScoreCircle from "~/components/ScoreCircle";
-import {useEffect, useState} from "react";
-import {usePuterStore} from "~/lib/puter";
+import { useEffect, useState } from "react";
+import { usePuterStore } from "~/lib/puter";
 
-const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath } }: { resume: Resume }) => {
+const ResumeCard = ({ resume }: { resume: any }) => {
+    const { id, companyName, jobTitle, feedback, imagePath, imagePage } = resume;
     const { fs } = usePuterStore();
     const [resumeUrl, setResumeUrl] = useState('');
 
     useEffect(() => {
         const loadResume = async () => {
-            const blob = await fs.read(imagePath);
-            if(!blob) return;
+            const path = imagePath || imagePage;
+            if (!path) return;
+            const blob = await fs.read(path);
+            if (!blob) return;
             let url = URL.createObjectURL(blob);
             setResumeUrl(url);
         }
 
         loadResume();
-    }, [imagePath]);
+    }, [imagePath, imagePage]);
 
     return (
         <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
@@ -31,12 +34,12 @@ const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath }
                 </div>
             </div>
             {resumeUrl && (
-                <div className="gradient-border animate-in fade-in duration-1000">
-                    <div className="w-full h-full">
+                <div className="gradient-border animate-in fade-in duration-1000 flex-1">
+                    <div className="w-full h-full min-h-[250px] sm:min-h-[300px]">
                         <img
                             src={resumeUrl}
                             alt="resume"
-                            className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
+                            className="w-full h-[250px] sm:h-[300px] object-cover object-top rounded-xl"
                         />
                     </div>
                 </div>

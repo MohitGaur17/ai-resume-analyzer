@@ -1,13 +1,13 @@
-import {Link, useNavigate, useParams} from "react-router";
-import {useEffect, useState} from "react";
-import {usePuterStore} from "~/lib/puter";
+import { Link, useNavigate, useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { usePuterStore } from "~/lib/puter";
 import Summary from "~/components/Summary";
 import ATS from "~/components/ATS";
 import Details from "~/components/Details";
 
 export const meta = () => ([
     { title: 'Resume Review - TalentLens AI' },
-    { name: 'description', content: 'Detailed overview of your resume' },
+    { name: 'description', content: 'Detailed overview of your resume analysis, ATS score, and actionable AI-powered feedback provided by TalentLens AI.' },
 ])
 
 const Resume = () => {
@@ -19,31 +19,31 @@ const Resume = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!isLoading && !auth.isAuthenticated) navigate(`/auth?next=/resume/${id}`);
+        if (!isLoading && !auth.isAuthenticated) navigate(`/auth?next=/resume/${id}`);
     }, [isLoading])
 
     useEffect(() => {
         const loadResume = async () => {
             const resume = await kv.get(`resume:${id}`);
 
-            if(!resume) return;
+            if (!resume) return;
 
             const data = JSON.parse(resume);
 
             const resumeBlob = await fs.read(data.resumePath);
-            if(!resumeBlob) return;
+            if (!resumeBlob) return;
 
             const pdfBlob = new Blob([resumeBlob], { type: 'application/pdf' });
             const resumeUrl = URL.createObjectURL(pdfBlob);
             setResumeUrl(resumeUrl);
 
-            const imageBlob = await fs.read(data.imagePath);
-            if(!imageBlob) return;
+            const imageBlob = await fs.read(data.imagePath || data.imagePage);
+            if (!imageBlob) return;
             const imageUrl = URL.createObjectURL(imageBlob);
             setImageUrl(imageUrl);
 
             setFeedback(data.feedback);
-            console.log({resumeUrl, imageUrl, feedback: data.feedback });
+            console.log({ resumeUrl, imageUrl, feedback: data.feedback });
         }
 
         loadResume();
@@ -75,9 +75,9 @@ const Resume = () => {
                     <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
                     {feedback ? (
                         <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
-                            <Summary feedback = {feedback} />
-                            <ATS score = {feedback.ATS.score || 0} suggestions = {feedback.ATS.tips || []} />
-                            <Details feedback = {feedback} />
+                            <Summary feedback={feedback} />
+                            <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
+                            <Details feedback={feedback} />
                         </div>
                     ) : (
                         <img src="/images/resume-scan-2.gif" className="w-full" />

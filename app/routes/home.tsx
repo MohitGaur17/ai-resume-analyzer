@@ -48,7 +48,7 @@ export default function Home() {
         {!loadingResumes && resumes?.length === 0 ? (
             <h2>No resumes found. Upload your first resume to get feedback.</h2>
         ): (
-            <h2>Review your submissions and check AI-powered feedback.</h2>
+          <h2>Review your submissions and check AI-powered feedback.</h2>
         )}
       </div>
       {loadingResumes && (
@@ -58,11 +58,11 @@ export default function Home() {
       )}
 
       {!loadingResumes && resumes.length > 0 && (
-          <div className="resumes-section">
-            {resumes.map((resume) => (
-                <ResumeCard key={resume.id} resume={resume} />
-            ))}
-          </div>
+        <div className="resumes-section">
+          {resumes.map((resume) => (
+              <ResumeCard key={resume.id} resume={resume} />
+          ))}
+        </div>
       )}
 
       {!loadingResumes && resumes?.length === 0 && (
