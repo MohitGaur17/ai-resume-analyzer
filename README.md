@@ -19,7 +19,46 @@ TalentLens AI is a robust, full-stack web application designed to give job seeke
 
 ## 🌐 Live Preview
 
-*Deployment link coming soon!*
+[TalentLens AI Live Demo](https://talentlens-ai-xwqfo.puter.site)
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+Ensure you have Node.js and `npm` installed on your development machine.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MohitGaur17/ai-resume-analyzer.git
+   cd ai-resume-analyzer
+   ```
+
+2. Install project dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the development server with Hot Module Replacement (HMR):
+
+```bash
+npm run dev
+```
+
+Navigate to `http://localhost:5173` in your browser to interact with the application.
+
+## 📦 Building for Production
+
+Compile a production-ready build by running:
+
+```bash
+npm run build
+```
+
+This will generate a `build/` directory containing statically processed assets and optimized server code, ready to be deployed to your favorite hosting platform.
 
 ---
 
