@@ -19,7 +19,7 @@ TalentLens AI is a robust, full-stack web application designed to give job seeke
 
 ## 🌐 Live Preview
 
-[TalentLens AI Live Demo](https://talentlens-ai-xwqfo.puter.site)
+[TalentLens AI Live Demo](https://talentlens-ai-amvq6.puter.site)
 
 ## 🏁 Getting Started
 
